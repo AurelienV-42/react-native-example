@@ -1,64 +1,63 @@
 import React from 'react';
-import { Animated, Image, Pressable, StyleSheet, Text } from "react-native";
+import {Image, Pressable, StyleSheet, Text} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-const Button = () => {
-  const animated = new Animated.Value(1);
-  const fadeIn = () => {
-    Animated.timing(animated, {
-      toValue: 0.4,
-      duration: 150,
-      useNativeDriver: true,
-    }).start();
-  };
+interface PropsType {
+  isDarkMode?: boolean;
+  onPress?: () => void;
+  style?: {};
+  imgSource?: {};
+  imgStyle?: {};
+  txt?: string;
+  txtStyle?: {};
+  svg?: React.ReactNode;
+}
 
-  const fadeOut = () => {
-    Animated.timing(animated, {
-      toValue: 1,
-      duration: 250,
-      useNativeDriver: true,
-    }).start();
-  };
+const Button: React.FC<PropsType> = ({
+  isDarkMode,
+  onPress,
+  style,
+  imgSource,
+  imgStyle,
+  txt,
+  txtStyle,
+  svg,
+}) => {
+  const styles = createStyles(!!isDarkMode);
 
   return (
-    <Pressable onPressIn={fadeIn} onPressOut={fadeOut}>
-      <Animated.View
-        style={[
-          styles.button,
-          {backgroundColor: '#2277ee', opacity: animated},
-        ]}>
-        <Image
-          style={styles.tinyLogo}
-          source={{
-            uri: 'https://reactnative.dev/img/tiny_logo.png',
-          }}
-        />
-        <Text style={styles.buttonText}>Image button</Text>
-      </Animated.View>
+    <Pressable style={[styles.button, style]} onPress={onPress}>
+      {svg && svg}
+      {
+        //TODO https://stackoverflow.com/questions/28916768/how-can-i-add-properties-to-a-react-component-passed-as-a-variable
+      }
+      {imgSource && (
+        <Image style={[styles.tinyLogo, imgStyle]} source={imgSource} />
+      )}
+      {txt && <Text style={[styles.buttonText, txtStyle]}>{txt}</Text>}
     </Pressable>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    marginHorizontal: 36,
-  },
-  button: {
-    padding: 12,
-    marginBottom: 12,
-    flexDirection: 'row',
-    borderRadius: 6,
-  },
-  buttonText: {
-    marginTop: 10,
-    marginLeft: 20,
-    fontSize: 20,
-  },
-  tinyLogo: {
-    width: 50,
-    height: 50,
-  },
-});
+const createStyles = (isDarkMode: boolean) =>
+  StyleSheet.create({
+    button: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 8,
+      marginBottom: 12,
+      flexDirection: 'row',
+      borderRadius: 6,
+    },
+    buttonText: {
+      marginLeft: 8,
+      fontSize: 20,
+      color: isDarkMode ? Colors.white : Colors.black,
+    },
+    tinyLogo: {
+      width: 24,
+      height: 24,
+    },
+  });
 
 export default Button;
