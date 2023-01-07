@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Image, Pressable, StyleSheet, Text} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -11,6 +11,7 @@ interface PropsType {
   txt?: string;
   txtStyle?: {};
   svg?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Button: React.FC<PropsType> = ({
@@ -22,11 +23,17 @@ const Button: React.FC<PropsType> = ({
   txt,
   txtStyle,
   svg,
+  children,
 }) => {
-  const styles = createStyles(!!isDarkMode);
+  const [isPressed, setPressed] = useState(false);
+  const styles = createStyles(!!isDarkMode, isPressed);
 
   return (
-    <Pressable style={[styles.button, style]} onPress={onPress}>
+    <Pressable
+      style={[styles.button, style]}
+      onPress={onPress}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}>
       {svg && svg}
       {
         //TODO https://stackoverflow.com/questions/28916768/how-can-i-add-properties-to-a-react-component-passed-as-a-variable
@@ -35,17 +42,18 @@ const Button: React.FC<PropsType> = ({
         <Image style={[styles.tinyLogo, imgStyle]} source={imgSource} />
       )}
       {txt && <Text style={[styles.buttonText, txtStyle]}>{txt}</Text>}
+      {children && children}
     </Pressable>
   );
 };
 
-const createStyles = (isDarkMode: boolean) =>
+const createStyles = (isDarkMode: boolean, isPressed: boolean) =>
   StyleSheet.create({
     button: {
+      opacity: isPressed ? 0.5 : 1,
       alignItems: 'center',
       justifyContent: 'center',
       padding: 8,
-      marginBottom: 12,
       flexDirection: 'row',
       borderRadius: 6,
     },

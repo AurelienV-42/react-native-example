@@ -1,9 +1,9 @@
 const fs = require('fs');
 
-const directories = ['images/logo', 'images/UI'];
-const imageFileNames = (dir) => {
+const directories = ['images/UI'];
+const imageFileNames = dir => {
   const array = [];
-  fs.readdirSync(dir).map((file) => {
+  fs.readdirSync(dir).map(file => {
     if (file.endsWith('.png')) {
       file = file.replace('.png', '');
       array.push(file);
@@ -14,10 +14,10 @@ const imageFileNames = (dir) => {
 
 const generate = () => {
   let properties = '';
-  directories.forEach((directory) => {
+  directories.forEach(directory => {
     properties += '// ' + directory + '\n  ';
     properties += imageFileNames('assets/' + directory)
-      .map((name) => {
+      .map(name => {
         return `${name}: require('./${directory}/${name}.png')`;
       })
       .join(',\n  ');

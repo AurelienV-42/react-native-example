@@ -2,13 +2,13 @@ import {responsiveFontSize} from 'react-native-responsive-dimensions';
 
 export default {
   bold: {
-    fontFamily: 'Montserrat-Bold',
+    fontFamily: 'Inter-Bold',
   },
   semiBold: {
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: 'Inter-SemiBold',
   },
   regular: {
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Inter-Regular',
   },
 
   extraLarge: {

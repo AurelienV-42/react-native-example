@@ -1,5 +1,4 @@
 import {
-  responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
@@ -66,7 +65,7 @@ export default {
     zIndex: 1,
   },
 
-  // Icon
+  // Icons
   iconBig: {width: 40, height: 40},
   iconDefault: {width: 25, height: 25},
   iconMedium: {width: 20, height: 20},

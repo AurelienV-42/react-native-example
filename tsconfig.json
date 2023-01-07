@@ -8,17 +8,12 @@
     /* Completeness */
     "skipLibCheck": true,
     /* Skip type checking all .d.ts files. */
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "src/*": [
-        "./src/*"
-      ],
-      "assets/*": [
-        "./assets/*"
-      ],
-      "components/*": [
-        "./src/components/*"
-      ],
+      "src/*": ["src/*"],
+      "config/*": ["config/*"],
+      "assets/*": ["assets/*"],
+      "components/*": ["src/components/*"],
     }
   }
 }
