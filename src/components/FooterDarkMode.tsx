@@ -30,7 +30,11 @@ const FooterDarkMode: React.FC<PropsType> = ({isDarkMode, setDarkMode}) => {
       <View style={styles.containerButton}>
         <Button
           onPress={() => isDarkMode && setDarkMode(false)}
-          style={[styles.buttonSwitch, styles.buttonLight]}
+          style={[
+            styles.buttonSwitch,
+            styles.buttonLight,
+            !isDarkMode && mainStyles.shadow,
+          ]}
           svg={<Sun style={styles.colorSvg} height="24" width="24" />}
           txt={'Light'}
           txtStyle={styles.textLight}
@@ -38,7 +42,11 @@ const FooterDarkMode: React.FC<PropsType> = ({isDarkMode, setDarkMode}) => {
         />
         <Button
           onPress={() => !isDarkMode && setDarkMode(true)}
-          style={[styles.buttonSwitch, styles.buttonDark]}
+          style={[
+            styles.buttonSwitch,
+            styles.buttonDark,
+            isDarkMode && mainStyles.shadow,
+          ]}
           svg={<Moon style={styles.colorSvg} height="24" width="24" />}
           txt={'Dark'}
           txtStyle={styles.textDark}
@@ -86,11 +94,10 @@ const createStyles = (isDarkMode: boolean) =>
       padding: 4,
     },
     buttonLight: {
-      backgroundColor: isDarkMode ? colors.blue3bg : colors.white2bg,
+      backgroundColor: isDarkMode ? colors.blue2bg : colors.white1bg,
     },
     buttonDark: {
-      backgroundColor: isDarkMode ? colors.blue2bg : colors.white1bg,
-      ...mainStyles.shadow,
+      backgroundColor: isDarkMode ? colors.blue3bg : colors.white2bg,
     },
     buttonSwitch: {
       paddingVertical: 4,

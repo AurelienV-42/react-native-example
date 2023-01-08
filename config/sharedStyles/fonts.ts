@@ -11,31 +11,31 @@ export default {
     fontFamily: 'Inter-Regular',
   },
 
-  extraLarge: {
-    fontSize: responsiveFontSize(4),
+  // extraLarge: {
+  //   fontSize: responsiveFontSize(4),
+  // },
+  // superLarge: {
+  //   fontSize: responsiveFontSize(3),
+  // },
+  // large: {
+  //   fontSize: responsiveFontSize(2.5), // 30
+  // },
+  s20: {
+    fontSize: responsiveFontSize(2.5), // 18
   },
-  superLarge: {
-    fontSize: responsiveFontSize(3),
-  },
-  large: {
-    fontSize: responsiveFontSize(2.5), // 30
-  },
-  mediumLarge: {
+  s18: {
     fontSize: responsiveFontSize(2.3), // 18
   },
-  medium: {
+  s16: {
     fontSize: responsiveFontSize(2.1), // 16
   },
-  smallMedium: {
-    fontSize: responsiveFontSize(1.95), // 15
-  },
-  small: {
+  s14: {
     fontSize: responsiveFontSize(1.8), // 14
   },
-  superSmall: {
+  s12: {
     fontSize: responsiveFontSize(1.5), // 12
   },
-  extraSmall: {
+  s10: {
     fontSize: responsiveFontSize(1.2), // 10
   },
 };

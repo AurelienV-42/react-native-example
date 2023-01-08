@@ -32,6 +32,7 @@ const App = () => {
 const createStyles = (isDarkMode: boolean) =>
   StyleSheet.create({
     container: {
+      paddingBottom: '5%',
       backgroundColor: isDarkMode ? colors.blue1bg : colors.white,
       flex: 1,
     },

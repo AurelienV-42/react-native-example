@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Image, Pressable, StyleSheet, Text} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import textStyle from 'config/sharedStyles/textStyle';
+import colors from 'config/sharedStyles/colors';
 
 interface PropsType {
   isDarkMode?: boolean;
@@ -58,9 +59,9 @@ const createStyles = (isDarkMode: boolean, isPressed: boolean) =>
       borderRadius: 6,
     },
     buttonText: {
+      ...textStyle.s16Semi,
       marginLeft: 8,
-      fontSize: 20,
-      color: isDarkMode ? Colors.white : Colors.black,
+      color: isDarkMode ? colors.gray4 : colors.gray2,
     },
     tinyLogo: {
       width: 24,

@@ -1,122 +1,81 @@
 import fonts from 'config/sharedStyles/fonts';
 
 export default {
-  text: {
-    extraLargeBold: {
-      ...fonts.bold,
-      ...fonts.extraLarge,
-    },
-    extraLargeSemi: {
-      ...fonts.semiBold,
-      ...fonts.extraLarge,
-    },
-    extraLargeRegular: {
-      ...fonts.regular,
-      ...fonts.extraLarge,
-    },
+  s20Bold: {
+    ...fonts.bold,
+    ...fonts.s20,
+  },
+  s20Semi: {
+    ...fonts.semiBold,
+    ...fonts.s20,
+  },
+  s20Regular: {
+    ...fonts.regular,
+    ...fonts.s20,
+  },
 
-    superLargeBold: {
-      ...fonts.bold,
-      ...fonts.superLarge,
-    },
-    superLargeSemi: {
-      ...fonts.semiBold,
-      ...fonts.superLarge,
-    },
-    superLargeRegular: {
-      ...fonts.regular,
-      ...fonts.superLarge,
-    },
+  s18Bold: {
+    ...fonts.bold,
+    ...fonts.s18,
+  },
+  s18Semi: {
+    ...fonts.semiBold,
+    ...fonts.s18,
+  },
+  s18Regular: {
+    ...fonts.regular,
+    ...fonts.s18,
+  },
 
-    largeBold: {
-      ...fonts.bold,
-      ...fonts.large,
-    },
-    largeSemi: {
-      ...fonts.semiBold,
-      ...fonts.large,
-    },
-    largeRegular: {
-      ...fonts.regular,
-      ...fonts.large,
-    },
+  s16Bold: {
+    ...fonts.bold,
+    ...fonts.s16,
+  },
+  s16Semi: {
+    ...fonts.semiBold,
+    ...fonts.s16,
+  },
+  s16Regular: {
+    ...fonts.regular,
+    ...fonts.s16,
+  },
 
-    mediumLargeBold: {
-      ...fonts.bold,
-      ...fonts.mediumLarge,
-    },
-    mediumLargeSemi: {
-      ...fonts.semiBold,
-      ...fonts.mediumLarge,
-    },
-    mediumLargeRegular: {
-      ...fonts.regular,
-      ...fonts.mediumLarge,
-    },
+  s14Bold: {
+    ...fonts.bold,
+    ...fonts.s14,
+  },
+  s14Semi: {
+    ...fonts.semiBold,
+    ...fonts.s14,
+  },
+  s14Regular: {
+    ...fonts.regular,
+    ...fonts.s14,
+  },
 
-    mediumBold: {
-      ...fonts.bold,
-      ...fonts.medium,
-    },
-    mediumSemi: {
-      ...fonts.semiBold,
-      ...fonts.medium,
-    },
-    mediumRegular: {
-      ...fonts.regular,
-      ...fonts.medium,
-    },
+  s12Bold: {
+    ...fonts.bold,
+    ...fonts.s12,
+  },
+  s12Semi: {
+    ...fonts.semiBold,
+    ...fonts.s12,
+  },
+  s12Regular: {
+    ...fonts.regular,
+    ...fonts.s12,
+  },
 
-    smallMediumBold: {
-      ...fonts.bold,
-      ...fonts.smallMedium,
-    },
-    smallMediumSemi: {
-      ...fonts.semiBold,
-      ...fonts.smallMedium,
-    },
-    smallMediumRegular: {
-      ...fonts.regular,
-      ...fonts.smallMedium,
-    },
-
-    smallBold: {
-      ...fonts.bold,
-      ...fonts.small,
-    },
-    smallSemi: {
-      ...fonts.semiBold,
-      ...fonts.small,
-    },
-    smallRegular: {
-      ...fonts.regular,
-      ...fonts.small,
-    },
-
-    superSmallBold: {
-      ...fonts.bold,
-      ...fonts.superSmall,
-    },
-    superSmallSemi: {
-      ...fonts.semiBold,
-      ...fonts.superSmall,
-    },
-    superSmallRegular: {
-      ...fonts.regular,
-      ...fonts.superSmall,
-    },
-
-    extraSmallBold: {
-      ...fonts.bold,
-      ...fonts.extraSmall,
-    },
-    extraSmallSemi: {
-      ...fonts.semiBold,
-      ...fonts.extraSmall,
-    },
-    extraSmallRegular: {
-      ...fonts.regular,
-      ...fonts.extraSmall,
-    },
+  s10Bold: {
+    ...fonts.bold,
+    ...fonts.s10,
+  },
+  s10Semi: {
+    ...fonts.semiBold,
+    ...fonts.s10,
+  },
+  s10Regular: {
+    ...fonts.regular,
+    ...fonts.s10,
   },
 };

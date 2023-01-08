@@ -6,6 +6,7 @@ import LogoLight from 'assets/images/logo/logo_light.svg';
 import Button from 'components/Button';
 import images from 'assets/index';
 import colors from 'config/sharedStyles/colors';
+import textStyle from 'config/sharedStyles/textStyle';
 interface PropsType {
   isDarkMode: boolean;
   setDarkMode: (arg0: boolean) => void;
@@ -66,8 +67,7 @@ const createStyles = (isDarkMode: boolean) =>
     },
     containerContent: {justifyContent: 'center', flex: 0.8},
     stayConnectedText: {
-      fontFamily: 'Inter',
-      fontWeight: '600',
+      ...textStyle.s20Semi,
       fontSize: 20,
       marginBottom: 8,
       color: isDarkMode ? colors.gray6 : colors.gray1,
@@ -87,14 +87,12 @@ const createStyles = (isDarkMode: boolean) =>
     },
     containerTxtProfile: {paddingLeft: 12},
     txtNameProfile: {
-      fontFamily: 'Inter',
-      fontWeight: '600',
+      ...textStyle.s14Semi,
       fontSize: 15,
       color: isDarkMode ? colors.gray6 : colors.gray1,
     },
     txtMailProfile: {
-      fontFamily: 'Inter',
-      fontSize: 12,
+      ...textStyle.s12Regular,
       color: isDarkMode ? colors.gray6 : colors.gray1,
     },
   });
