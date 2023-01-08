@@ -82,7 +82,7 @@ const createStyles = (isDarkMode: boolean) =>
     },
     containerColourScheme: {
       alignItems: 'flex-start',
-      padding: 12,
+      padding: 4,
       marginBottom: 8,
     },
     containerButton: {
