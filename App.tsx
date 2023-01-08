@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -9,6 +9,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Login from 'src/screens/login/Login';
 import colors from 'config/sharedStyles/colors';
+import SplashScreen from 'react-native-splash-screen';
 const App = () => {
   const [isDarkMode, setDarkMode] = useState(useColorScheme() === 'dark');
 
@@ -17,6 +18,10 @@ const App = () => {
   };
 
   const styles = createStyles(isDarkMode);
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
