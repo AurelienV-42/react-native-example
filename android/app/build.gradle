@@ -3,6 +3,19 @@ apply plugin: "com.android.application"
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
+def getPassword(String currentUser, String keyChain) {
+   def stdout = new ByteArrayOutputStream()
+   def stderr = new ByteArrayOutputStream()
+   exec {
+       commandLine 'security', '-q', 'find-generic-password', '-a', currentUser, '-s', keyChain, '-w'
+       standardOutput = stdout
+       errorOutput = stderr
+       ignoreExitValue true
+   }
+   //noinspection GroovyAssignabilityCheck
+      stdout.toString().trim()
+}
+
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
@@ -129,6 +142,8 @@ def reactNativeArchitectures() {
     return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
 }
 
+def pass = getPassword("aurelienv","android_keystore")
+
 android {
     ndkVersion rootProject.ext.ndkVersion
 
@@ -211,6 +226,14 @@ android {
         }
     }
     signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword pass
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword pass
+            }
+        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
@@ -225,7 +248,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
