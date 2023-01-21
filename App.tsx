@@ -1,24 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
+import React, {useEffect} from 'react';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Login from 'src/screens/login/Login';
+import HomeScreen from 'src/screens/Home/HomeScreen';
 import colors from 'config/sharedStyles/colors';
 import SplashScreen from 'react-native-splash-screen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 const App = () => {
-  const [isDarkMode, setDarkMode] = useState(useColorScheme() === 'dark');
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  const styles = createStyles(isDarkMode);
-
   useEffect(() => {
     SplashScreen.hide();
   }, []);
@@ -26,21 +13,20 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        barStyle={'dark-content'} // Or dark-content
+        backgroundColor={Colors.lighter} // Or Colors.lighter
       />
-      <Login isDarkMode={isDarkMode} setDarkMode={setDarkMode} />
+      <HomeScreen />
     </SafeAreaView>
   );
 };
 
-const createStyles = (isDarkMode: boolean) =>
-  StyleSheet.create({
-    container: {
-      paddingBottom: '5%',
-      backgroundColor: isDarkMode ? colors.blue1bg : colors.white,
-      flex: 1,
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    paddingBottom: '5%',
+    backgroundColor: colors.whiteBg,
+    flex: 1,
+  },
+});
 
 export default App;

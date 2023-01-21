@@ -1,25 +1,19 @@
 import {responsiveFontSize} from 'react-native-responsive-dimensions';
 
 export default {
+  blackBold: {
+    fontFamily: 'Inter-Black',
+  },
   bold: {
     fontFamily: 'Inter-Bold',
   },
   semiBold: {
     fontFamily: 'Inter-SemiBold',
   },
-  regular: {
-    fontFamily: 'Inter-Regular',
+  medium: {
+    fontFamily: 'Inter-Medium',
   },
 
-  // extraLarge: {
-  //   fontSize: responsiveFontSize(4),
-  // },
-  // superLarge: {
-  //   fontSize: responsiveFontSize(3),
-  // },
-  // large: {
-  //   fontSize: responsiveFontSize(2.5), // 30
-  // },
   s20: {
     fontSize: responsiveFontSize(2.5), // 18
   },

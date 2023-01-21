@@ -1,19 +1,18 @@
 export default {
-  blue1bg: '#0F1621',
-  blue2bg: '#18202E',
-  blue3bg: '#29303C',
-
   white: '#FFFFFF',
-  white1bg: '#F9F9F9',
-  white2bg: '#F0F0F0',
+  whiteBg: '#FEF9F7',
 
   red: '#FB9B9B',
-  blue: '#B1E5FC',
+  blue: '#9BDEFB',
   orange: '#FFBC99',
-  green: '#B5EBCD',
   purple: '#CABDFF',
+  green: '#A6ECC5',
 
-  grayBlue: '#303845',
+  lightRed: '#FFF0F0',
+  lightBlue: '#F0F9FF',
+  lightOrange: '#FFF0F0',
+  lightPurple: '#F7F0FF',
+  lightGreen: '#F7FFF0',
 
   gray1: '#333333',
   gray2: '#4F4F4F',

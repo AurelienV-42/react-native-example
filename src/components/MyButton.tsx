@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {Image, Pressable, StyleSheet, Text} from 'react-native';
+import {Image, Pressable, StyleSheet} from 'react-native';
 import textStyle from 'config/sharedStyles/textStyle';
 import colors from 'config/sharedStyles/colors';
+import MyText from 'components/MyText';
 
 interface PropsType {
   isDarkMode?: boolean;
@@ -15,7 +16,7 @@ interface PropsType {
   children?: React.ReactNode;
 }
 
-const Button: React.FC<PropsType> = ({
+const MyButton: React.FC<PropsType> = ({
   isDarkMode,
   onPress,
   style,
@@ -42,7 +43,7 @@ const Button: React.FC<PropsType> = ({
       {imgSource && (
         <Image style={[styles.tinyLogo, imgStyle]} source={imgSource} />
       )}
-      {txt && <Text style={[styles.buttonText, txtStyle]}>{txt}</Text>}
+      {txt && <MyText style={[styles.buttonText, txtStyle]} txt={txt} />}
       {children && children}
     </Pressable>
   );
@@ -69,4 +70,4 @@ const createStyles = (isDarkMode: boolean, isPressed: boolean) =>
     },
   });
 
-export default Button;
+export default MyButton;
