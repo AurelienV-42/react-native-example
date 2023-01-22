@@ -11,63 +11,75 @@ import Trips from 'assets/images/illustrations/trips.svg';
 import colors from 'config/sharedStyles/colors';
 import mainStyles from 'config/sharedStyles/mainStyles';
 import MyText from 'components/MyText';
+import {BlogType} from 'src/screens/Blog/Blog';
+import {useNavigation} from '@react-navigation/core';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const dataDefault = [
   {
     title: 'Me',
     description: 'Hmmm... But where did I go?',
-    svg: <Experiences width={75} height={75} />,
+    svg: (
+      <Experiences style={{color: mainStyles.orange}} width={75} height={75} />
+    ),
     readingTime: 5,
   },
   {
     title: 'Experiences',
     description: 'Hmmm... But where did I go?',
     readingTime: 5,
-    svg: <Experiences width={75} height={75} />,
+    svg: (
+      <Experiences style={{color: mainStyles.orange}} width={75} height={75} />
+    ),
     backgroundColor: colors.lightOrange,
   },
   {
     title: 'Competencies',
     description: 'Hmmm... But where did I go?',
     readingTime: 5,
-    svg: <Competencies width={75} height={75} />,
+    svg: (
+      <Competencies style={{color: mainStyles.green}} width={75} height={75} />
+    ),
     backgroundColor: colors.lightGreen,
   },
   {
     title: 'Education',
     description: 'Hmmm... But where did I go?',
     readingTime: 5,
-    svg: <Education width={75} height={75} />,
+    svg: <Education style={{color: mainStyles.blue}} width={75} height={75} />,
     backgroundColor: colors.lightBlue,
   },
   {
     title: 'Hobbies',
     description: 'Hmmm... But where did I go?',
     readingTime: 5,
-    svg: <Hobbies width={75} height={75} />,
+    svg: <Hobbies style={{color: mainStyles.purple}} width={75} height={75} />,
     backgroundColor: colors.lightPurple,
   },
   {
     title: 'Trips',
     description: 'Hmmm... But where did I go?',
     readingTime: 5,
-    svg: <Trips width={75} height={75} />,
+    svg: <Trips style={{color: mainStyles.red}} width={75} height={75} />,
     backgroundColor: colors.lightRed,
   },
 ];
 
-interface BlogType {
-  title: string;
-  description: string;
-  readingTime: number;
-  svg?: React.ReactNode;
-  backgroundColor?: string;
-}
+type props = {};
+type navigationProps = NativeStackNavigationProp<props>;
+type RootStackParamList = {
+  ReadingScreen?: {id?: number; item?: BlogType};
+};
 
-const BlogList = () => {
+const BlogList: React.FC<navigationProps> = ({}) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   const Item: React.FC<{item: BlogType}> = ({item}) => {
     return (
-      <MyButton style={styles.container}>
+      <MyButton
+        style={styles.container}
+        onPress={() => navigation.push('ReadingScreen', {item})}>
         <View
           style={[
             styles.illuContainer,

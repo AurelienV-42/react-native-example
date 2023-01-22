@@ -5,12 +5,13 @@ import textStyle from 'config/sharedStyles/textStyle';
 import Settings from 'assets/images/UI/settings.svg';
 import mainStyles from 'config/sharedStyles/mainStyles';
 import MyButton from 'components/MyButton';
-import BlogList from 'src/screens/Home/BlogList';
+import BlogList from 'src/screens/Blog/BlogList';
 import MyText from 'components/MyText';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-interface PropsType {}
+type navigationProps = NativeStackScreenProps<{}>;
 
-const HomeScreen: React.FC<PropsType> = ({}) => {
+const HomeScreen: React.FC<navigationProps> = ({route, navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerWithPadding}>
@@ -18,12 +19,18 @@ const HomeScreen: React.FC<PropsType> = ({}) => {
           <MyText style={styles.logoText} txt={'Aurél.'} />
           <MyButton
             style={styles.containerBtn}
-            svg={<Settings height={20} width={20} />}
+            svg={
+              <Settings
+                style={{color: mainStyles.gray1}}
+                height={20}
+                width={20}
+              />
+            }
           />
         </View>
 
         <View style={styles.containerContent}>
-          <BlogList />
+          <BlogList route={route} navigation={navigation} />
         </View>
       </View>
     </SafeAreaView>

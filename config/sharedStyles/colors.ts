@@ -10,7 +10,7 @@ export default {
 
   lightRed: '#FFF0F0',
   lightBlue: '#F0F9FF',
-  lightOrange: '#FFF0F0',
+  lightOrange: '#FFFAF8',
   lightPurple: '#F7F0FF',
   lightGreen: '#F7FFF0',
 

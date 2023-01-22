@@ -1,20 +1,24 @@
 {
   "name": "aurel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "react-native start",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
-    "android:prod": "react-native link && cd android && rm -rf ./app/src/main/res/drawable-* && rm -rf ./app/src/main/res/raw && ./gradlew clean && ./gradlew assembleRelease",
-    "androidbundle:prod": "react-native link && cd android && rm -rf ./app/src/main/res/drawable-* && rm -rf ./app/src/main/res/raw && ./gradlew clean && ./gradlew bundleRelease",
+    "android:prod": "cd android ./gradlew clean && ./gradlew assembleRelease",
+    "androidbundle:prod": "cd android ./gradlew clean && ./gradlew bundleRelease",
     "images": "node ../react-native-example/assets/image.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.1.2",
+    "@react-navigation/native-stack": "^6.9.8",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-responsive-dimensions": "^3.1.1",
+    "react-native-safe-area-context": "^4.5.0",
+    "react-native-screens": "^3.19.0",
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "^13.6.0",
     "react-native-svg-transformer": "^1.0.0"
