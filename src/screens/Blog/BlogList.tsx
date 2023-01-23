@@ -31,7 +31,8 @@ const dataDefault = [
     svg: (
       <Experiences style={{color: mainStyles.orange}} width={75} height={75} />
     ),
-    backgroundColor: colors.lightOrange,
+    mainColor: colors.orange,
+    secondColor: colors.lightOrange,
   },
   {
     title: 'Competencies',
@@ -40,28 +41,33 @@ const dataDefault = [
     svg: (
       <Competencies style={{color: mainStyles.green}} width={75} height={75} />
     ),
-    backgroundColor: colors.lightGreen,
+    littleSvg: <CV />,
+    mainColor: colors.green,
+    secondColor: colors.lightGreen,
   },
   {
     title: 'Education',
     description: 'Hmmm... But where did I go?',
     readingTime: 5,
     svg: <Education style={{color: mainStyles.blue}} width={75} height={75} />,
-    backgroundColor: colors.lightBlue,
+    mainColor: colors.blue,
+    secondColor: colors.lightBlue,
   },
   {
     title: 'Hobbies',
     description: 'Hmmm... But where did I go?',
     readingTime: 5,
     svg: <Hobbies style={{color: mainStyles.purple}} width={75} height={75} />,
-    backgroundColor: colors.lightPurple,
+    mainColor: colors.purple,
+    secondColor: colors.lightPurple,
   },
   {
     title: 'Trips',
     description: 'Hmmm... But where did I go?',
     readingTime: 5,
     svg: <Trips style={{color: mainStyles.red}} width={75} height={75} />,
-    backgroundColor: colors.lightRed,
+    mainColor: colors.red,
+    secondColor: colors.lightRed,
   },
 ];
 
@@ -84,9 +90,7 @@ const BlogList: React.FC<navigationProps> = ({}) => {
           style={[
             styles.illuContainer,
             {
-              backgroundColor: item.backgroundColor
-                ? item.backgroundColor
-                : 'white',
+              backgroundColor: item.secondColor ? item.secondColor : 'white',
             },
           ]}>
           {item.svg && item.svg}

@@ -5,5 +5,7 @@ interface BlogType {
   description: string;
   readingTime: number;
   svg?: React.ReactNode;
-  backgroundColor?: string;
+  littleSvg?: React.ReactNode;
+  secondColor?: string;
+  mainColor?: string;
 }
