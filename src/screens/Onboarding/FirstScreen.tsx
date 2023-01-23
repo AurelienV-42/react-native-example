@@ -9,6 +9,7 @@ import createOnboardingStyles, {
   onboardingColor,
 } from 'src/screens/Onboarding/onboardingStyles';
 import images from 'assets/index';
+import GestureRecognizer from 'react-native-swipe-gestures';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
@@ -19,7 +20,9 @@ const FirstScreen: React.FC<navigationProps> = ({navigation}) => {
   );
 
   return (
-    <View style={styles.container}>
+    <GestureRecognizer
+      onSwipeLeft={() => navigation.push('SecondOnboarding')}
+      style={styles.container}>
       <View style={styles.marginBottom}>
         <MyText style={styles.defaultTxt} txt={'I can be '} />
         <MainTxtWithPoint
@@ -43,7 +46,7 @@ const FirstScreen: React.FC<navigationProps> = ({navigation}) => {
           />
         </View>
       </View>
-    </View>
+    </GestureRecognizer>
   );
 };
 

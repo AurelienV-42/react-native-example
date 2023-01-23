@@ -36,7 +36,7 @@ const createOnboardingStyles = (mainColor: string, secondColor: string) =>
     marginBottom: {marginBottom: 20},
     containerAbsolute: {
       position: 'absolute',
-      top: 88,
+      top: '10%',
       left: 0,
       right: 0,
       justifyContent: 'center',

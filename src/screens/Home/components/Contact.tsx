@@ -45,8 +45,8 @@ const ContactModal: React.FC<ContactModalProps> = ({isVisible, onClose}) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderTopEndRadius: 10,
-    borderTopStartRadius: 10,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
     backgroundColor: mainStyles.lightOrange,
     padding: 20,
     paddingBottom: '12%',

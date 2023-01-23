@@ -88,7 +88,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     ...mainStyles.shadow,
   },
-  containerContent: {justifyContent: 'center', flex: 0.9},
+  containerContent: {
+    justifyContent: 'center',
+    flex: 0.9,
+  },
   ctaContact: {
     position: 'absolute',
     backgroundColor: mainStyles.white,

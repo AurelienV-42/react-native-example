@@ -11,6 +11,7 @@ import createOnboardingStyles, {
 import ButtonContact from 'src/screens/Onboarding/components/ButtonContact';
 import mainStyles from 'config/sharedStyles/mainStyles';
 import Malt from 'assets/images/logo/malt_icon.svg';
+import GestureRecognizer from 'react-native-swipe-gestures';
 
 type navigationProps = NativeStackScreenProps<{}>;
 const SecondScreen: React.FC<navigationProps> = ({navigation}) => {
@@ -20,7 +21,10 @@ const SecondScreen: React.FC<navigationProps> = ({navigation}) => {
   );
 
   return (
-    <View style={[styles.container, {paddingRight: 20}]}>
+    <GestureRecognizer
+      onSwipeLeft={() => navigation.push('ThirdOnboarding')}
+      onSwipeRight={navigation.goBack}
+      style={[styles.container, {paddingRight: 20}]}>
       <View style={styles.marginBottom}>
         <MyText style={styles.defaultTxt} txt={'Freelance'} />
         <MainTxtWithPoint
@@ -48,7 +52,7 @@ const SecondScreen: React.FC<navigationProps> = ({navigation}) => {
         backgroundColor={mainStyles.lightRed}
         txt={'Check my profile'}
       />
-    </View>
+    </GestureRecognizer>
   );
 };
 

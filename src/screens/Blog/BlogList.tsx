@@ -111,7 +111,7 @@ const BlogList: React.FC<navigationProps> = ({}) => {
 
   return (
     <FlatList
-      style={styles.listContainer}
+      contentContainerStyle={styles.listContainer}
       data={dataDefault}
       renderItem={Item}
     />

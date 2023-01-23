@@ -29,11 +29,24 @@ const App = () => {
         <Stack.Navigator
           initialRouteName="FirstOnboarding"
           screenOptions={{
+            animation: 'slide_from_right',
             headerShown: false,
           }}>
-          <Stack.Screen name="FirstOnboarding" component={FirstScreen} />
-          <Stack.Screen name="SecondOnboarding" component={SecondScreen} />
-          <Stack.Screen name="ThirdOnboarding" component={ThirdScreen} />
+          <Stack.Screen
+            name="FirstOnboarding"
+            component={FirstScreen}
+            options={{gestureEnabled: false}}
+          />
+          <Stack.Screen
+            name="SecondOnboarding"
+            component={SecondScreen}
+            options={{gestureEnabled: false}}
+          />
+          <Stack.Screen
+            name="ThirdOnboarding"
+            component={ThirdScreen}
+            options={{gestureEnabled: false}}
+          />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="ReadingScreen" component={ReadingScreen} />
         </Stack.Navigator>

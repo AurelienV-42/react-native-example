@@ -122,8 +122,9 @@ const createStyles = (mainColor?: string, secondColor?: string) =>
       backgroundColor: mainStyles.white,
       paddingTop: 32,
       paddingHorizontal: 24,
-      borderTopStartRadius: 40,
-      borderTopEndRadius: 40,
+      borderTopLeftRadius: 40,
+      borderTopRightRadius: 40,
+      ...mainStyles.shadow,
     },
     scrollViewPadding: {
       paddingBottom: 60,

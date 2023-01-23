@@ -12,8 +12,10 @@ import {CommonActions} from '@react-navigation/native';
 import mainStyles from 'config/sharedStyles/mainStyles';
 import ButtonContact from 'src/screens/Onboarding/components/ButtonContact';
 import Github from 'assets/images/logo/github_icon.svg';
+import GestureRecognizer from 'react-native-swipe-gestures';
 
 type navigationProps = NativeStackScreenProps<{}>;
+
 const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
   const styles = createOnboardingStyles(
     onboardingColor.thirdMain,
@@ -21,7 +23,9 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
   );
 
   return (
-    <View style={[styles.container, {paddingRight: 120}]}>
+    <GestureRecognizer
+      onSwipeRight={navigation.goBack}
+      style={[styles.container, {paddingRight: 120}]}>
       <View style={styles.marginBottom}>
         <MyText style={styles.defaultTxt} txt={'This app show'} />
         <MainTxtWithPoint
@@ -53,7 +57,7 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
         backgroundColor={mainStyles.blue}
         txt={'Check my profile'}
       />
-    </View>
+    </GestureRecognizer>
   );
 };
 
