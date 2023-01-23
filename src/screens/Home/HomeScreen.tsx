@@ -10,6 +10,7 @@ import MyText from 'components/MyText';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import SettingsModal from 'src/screens/Home/components/Settings';
 import ContactModal from 'src/screens/Home/components/Contact';
+import images from 'assets/index';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
@@ -25,6 +26,7 @@ const HomeScreen: React.FC<navigationProps> = ({route, navigation}) => {
       <View style={styles.containerWithPadding}>
         <View style={styles.containerHeader}>
           <MyText style={styles.logoText} txt={'Aurél.'} />
+          {/* No i18n now
           <MyButton
             onPress={() => setSettingsModalVisible(true)}
             style={styles.containerBtn}
@@ -35,13 +37,19 @@ const HomeScreen: React.FC<navigationProps> = ({route, navigation}) => {
                 width={20}
               />
             }
-          />
+          />*/}
         </View>
 
         <View style={styles.containerContent}>
           <BlogList route={route} navigation={navigation} />
         </View>
       </View>
+      <MyButton
+        onPress={() => setContactModalVisible(true)}
+        style={styles.ctaContact}
+        imgSource={images.letter}
+        imgStyle={styles.ctaImg}
+      />
 
       <SettingsModal
         isVisible={settingsModalVisible}
@@ -81,6 +89,19 @@ const styles = StyleSheet.create({
     ...mainStyles.shadow,
   },
   containerContent: {justifyContent: 'center', flex: 0.9},
+  ctaContact: {
+    position: 'absolute',
+    backgroundColor: mainStyles.white,
+    right: 20,
+    bottom: 52,
+    padding: 16,
+    borderRadius: 50,
+    ...mainStyles.shadow,
+  },
+  ctaImg: {
+    width: 34,
+    height: 34,
+  },
 });
 
 export default HomeScreen;

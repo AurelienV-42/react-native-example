@@ -41,7 +41,11 @@ const MyButton: React.FC<PropsType> = ({
         //TODO https://stackoverflow.com/questions/28916768/how-can-i-add-properties-to-a-react-component-passed-as-a-variable
       }
       {imgSource && (
-        <Image style={[styles.tinyLogo, imgStyle]} source={imgSource} />
+        <Image
+          style={[styles.tinyLogo, imgStyle]}
+          source={imgSource}
+          resizeMode={'contain'}
+        />
       )}
       {txt && <MyText style={[styles.buttonText, txtStyle]} txt={txt} />}
       {children && children}
