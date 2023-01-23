@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import MyText from 'components/MyText';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import MyPageIndicator from 'src/screens/Onboarding/components/MyPageIndicator';
@@ -22,10 +22,19 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
     onboardingColor.thirdSecond,
   );
 
+  const goToHome = () =>
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [{name: 'Home'}],
+      }),
+    );
+
   return (
     <GestureRecognizer
+      onSwipeLeft={goToHome}
       onSwipeRight={navigation.goBack}
-      style={[styles.container, {paddingRight: 120}]}>
+      style={[styles.container, stylesThird.container]}>
       <View style={styles.marginBottom}>
         <MyText style={styles.defaultTxt} txt={'This app show'} />
         <MainTxtWithPoint
@@ -40,14 +49,7 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
         go
         mainColor={mainStyles.orange}
         secondColor={mainStyles.lightOrange}
-        onPress={() =>
-          navigation.dispatch(
-            CommonActions.reset({
-              index: 1,
-              routes: [{name: 'Home'}],
-            }),
-          )
-        }
+        onPress={goToHome}
       />
       <ButtonContact
         url={'https://github.com/AurelienV-42/react-native-example'}
@@ -61,4 +63,7 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
   );
 };
 
+const stylesThird = StyleSheet.create({
+  container: {paddingRight: 120},
+});
 export default ThirdScreen;

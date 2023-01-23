@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import MyText from 'components/MyText';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import MyPageIndicator from 'src/screens/Onboarding/components/MyPageIndicator';
@@ -24,7 +24,7 @@ const SecondScreen: React.FC<navigationProps> = ({navigation}) => {
     <GestureRecognizer
       onSwipeLeft={() => navigation.push('ThirdOnboarding')}
       onSwipeRight={navigation.goBack}
-      style={[styles.container, {paddingRight: 20}]}>
+      style={[styles.container, stylesSecond.container]}>
       <View style={styles.marginBottom}>
         <MyText style={styles.defaultTxt} txt={'Freelance'} />
         <MainTxtWithPoint
@@ -55,5 +55,9 @@ const SecondScreen: React.FC<navigationProps> = ({navigation}) => {
     </GestureRecognizer>
   );
 };
+
+const stylesSecond = StyleSheet.create({
+  container: {paddingRight: 20},
+});
 
 export default SecondScreen;
