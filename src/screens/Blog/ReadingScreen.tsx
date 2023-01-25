@@ -7,12 +7,14 @@ import Back from 'assets/images/UI/back.svg';
 import MyButton from 'components/MyButton';
 import {BlogType} from 'src/screens/Blog/Blog';
 import MyText from 'components/MyText';
+import wordingBlog from 'config/wordingBlog';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
 const ReadingScreen: React.FC<navigationProps> = ({route, navigation}) => {
   const {item}: {item: BlogType} = route.params;
   const styles = createStyles(item.mainColor, item.secondColor);
+  let wording = wordingBlog[item.title.toLowerCase()];
   let svg;
 
   if (item.svg) {
@@ -44,43 +46,13 @@ const ReadingScreen: React.FC<navigationProps> = ({route, navigation}) => {
         showsVerticalScrollIndicator={false}
         style={styles.containerBlog}
         contentContainerStyle={styles.scrollViewPadding}>
-        <MyText style={styles.titleTxt} txt={item.title} />
-        <MyText
-          style={styles.bodyTxt}
-          txt={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-        />
-        <MyText
-          style={styles.bodyTxt}
-          txt={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-        />
-        <MyText
-          style={styles.bodyTxt}
-          txt={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-        />
-        <MyText
-          style={styles.bodyTxt}
-          txt={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-        />
-        <MyText
-          style={styles.bodyTxt}
-          txt={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-        />
-        <MyText
-          style={styles.bodyTxt}
-          txt={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-        />
+        {wording?.map((word, index) => (
+          <View key={index}>
+            {word.h1 && <MyText style={styles.titleTxt} txt={word.h1} />}
+            {word.h2 && <MyText style={styles.subTitleTxt} txt={word.h2} />}
+            {word.p && <MyText style={styles.bodyTxt} txt={word.p} />}
+          </View>
+        ))}
       </ScrollView>
     </View>
   );
@@ -120,7 +92,6 @@ const createStyles = (mainColor?: string, secondColor?: string) =>
     containerBlog: {
       width: '100%',
       backgroundColor: mainStyles.white,
-      paddingTop: 32,
       paddingHorizontal: 24,
       borderTopLeftRadius: 40,
       borderTopRightRadius: 40,
@@ -131,12 +102,16 @@ const createStyles = (mainColor?: string, secondColor?: string) =>
     },
     titleTxt: {
       ...mainStyles.s20Semi,
-      fontSize: 30,
-      marginBottom: 10,
+      fontSize: 22,
+      marginTop: 30,
+    },
+    subTitleTxt: {
+      ...mainStyles.s16Semi,
+      marginTop: 20,
     },
     bodyTxt: {
-      ...mainStyles.s18Medium,
-      marginBottom: 10,
+      ...mainStyles.s14Medium,
+      marginTop: 10,
     },
     svg: {
       color: mainColor,

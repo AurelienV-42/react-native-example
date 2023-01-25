@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 type navigationProps = NativeStackScreenProps<{}>;
 
 const LoadingScreen: React.FC<navigationProps> = ({navigation}) => {
+  const forceGoToOnboarding = true;
   const resetTo = (nameRoute: string) => {
     navigation.dispatch(
       CommonActions.reset({
@@ -21,6 +22,10 @@ const LoadingScreen: React.FC<navigationProps> = ({navigation}) => {
   };
 
   const goToOnboardingOrHome = async () => {
+    if (forceGoToOnboarding) {
+      resetTo('FirstOnboarding');
+      return;
+    }
     try {
       const value = await AsyncStorage.getItem('onboardingDone');
       if (value !== null) {
@@ -37,7 +42,7 @@ const LoadingScreen: React.FC<navigationProps> = ({navigation}) => {
 
   useEffect(() => {
     goToOnboardingOrHome();
-  }, []);
+  }, [goToOnboardingOrHome]);
 
   return (
     <View style={styles.container}>
