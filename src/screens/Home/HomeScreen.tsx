@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {LogBox, SafeAreaView, StyleSheet, View} from 'react-native';
 import colors from 'config/sharedStyles/colors';
 import textStyle from 'config/sharedStyles/textStyle';
-import Settings from 'assets/images/UI/settings.svg';
 import mainStyles from 'config/sharedStyles/mainStyles';
 import MyButton from 'components/MyButton';
 import BlogList from 'src/screens/Blog/BlogList';
@@ -66,7 +65,7 @@ const HomeScreen: React.FC<navigationProps> = ({route, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.whiteBg,
+    backgroundColor: colors.lightOrange,
   },
   containerWithPadding: {
     flex: 1,
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
   },
   logoText: {
     ...textStyle.s20BlackBold,
-    fontSize: 60, // 18
+    fontSize: 60,
   },
   containerBtn: {
     backgroundColor: mainStyles.white,

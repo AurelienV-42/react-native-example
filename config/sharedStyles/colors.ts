@@ -1,6 +1,5 @@
 export default {
   white: '#FFFFFF',
-  whiteBg: '#FEF9F7',
 
   red: '#FB9B9B',
   blue: '#9BDEFB',

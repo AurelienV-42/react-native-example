@@ -11,6 +11,7 @@ import FirstScreen from 'src/screens/Onboarding/FirstScreen';
 import ReadingScreen from 'src/screens/Blog/ReadingScreen';
 import SecondScreen from 'src/screens/Onboarding/SecondScreen';
 import ThirdScreen from 'src/screens/Onboarding/ThirdScreen';
+import LoadingScreen from 'src/screens/LoadingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +28,7 @@ const App = () => {
       />
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="FirstOnboarding"
+          initialRouteName="Loading"
           screenOptions={{
             animation: 'slide_from_right',
             headerShown: false,
@@ -47,6 +48,7 @@ const App = () => {
             component={ThirdScreen}
             options={{gestureEnabled: false}}
           />
+          <Stack.Screen name="Loading" component={LoadingScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="ReadingScreen" component={ReadingScreen} />
         </Stack.Navigator>

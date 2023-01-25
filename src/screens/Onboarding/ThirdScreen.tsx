@@ -13,6 +13,7 @@ import mainStyles from 'config/sharedStyles/mainStyles';
 import ButtonContact from 'src/screens/Onboarding/components/ButtonContact';
 import Github from 'assets/images/logo/github_icon.svg';
 import GestureRecognizer from 'react-native-swipe-gestures';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
@@ -22,13 +23,22 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
     onboardingColor.thirdSecond,
   );
 
-  const goToHome = () =>
+  const goToHome = async () => {
+    try {
+      const jsonValue = JSON.stringify(true);
+      await AsyncStorage.setItem('onboardingDone', jsonValue);
+    } catch (e) {
+      console.warn(
+        'There was an error trying to set AsyncStorage value: onboardingDone to true',
+      );
+    }
     navigation.dispatch(
       CommonActions.reset({
         index: 1,
         routes: [{name: 'Home'}],
       }),
     );
+  };
 
   return (
     <GestureRecognizer
