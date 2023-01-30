@@ -1,8 +1,7 @@
 import React from 'react';
 
 interface BlogType {
-  title: string;
-  description: string;
+  id: string;
   readingTime: number;
   svg?: React.ReactNode;
   littleSvg?: React.ReactNode;

@@ -7,14 +7,17 @@ import Back from 'assets/images/UI/back.svg';
 import MyButton from 'components/MyButton';
 import {BlogType} from 'src/screens/Blog/Blog';
 import MyText from 'components/MyText';
-import wordingBlog from 'config/wordingBlog';
+import {useTranslation} from 'react-i18next';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
 const ReadingScreen: React.FC<navigationProps> = ({route, navigation}) => {
+  const {i18n, t} = useTranslation(['blog']);
   const {item}: {item: BlogType} = route.params;
   const styles = createStyles(item.mainColor, item.secondColor);
-  let wording = wordingBlog[item.title.toLowerCase()];
+  // @ts-ignore
+  let wording = i18n.store.data[i18n.language].blog[item.id].content;
+  console.log(wording);
   let svg;
 
   if (item.svg) {
@@ -24,6 +27,7 @@ const ReadingScreen: React.FC<navigationProps> = ({route, navigation}) => {
       height: 200,
     });
   }
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -33,11 +37,18 @@ const ReadingScreen: React.FC<navigationProps> = ({route, navigation}) => {
             svg={<Back style={styles.colorSvg} height={25} width={14} />}
             onPress={() => navigation.goBack()}
           />
-          <MyText style={styles.titleHeader} txt={item.title + '.'} />
           <MyText
-            style={styles.secondHeader}
-            txt={item.readingTime + ' mins'}
+            style={styles.titleHeader}
+            txt={t(`${item.id}.title`) + '.'}
           />
+          {item.readingTime ? (
+            <MyText
+              style={styles.secondHeader}
+              txt={item.readingTime + ' mins'}
+            />
+          ) : (
+            <View style={styles.secondContainer} />
+          )}
         </View>
         {svg && svg}
       </View>
@@ -84,6 +95,10 @@ const createStyles = (mainColor?: string, secondColor?: string) =>
       ...mainStyles.s20Semi,
       fontSize: 26,
       marginBottom: 42,
+    },
+    secondContainer: {
+      backgroundColor: 'blue',
+      marginBottom: 32,
     },
     secondHeader: {
       ...mainStyles.s16Medium,

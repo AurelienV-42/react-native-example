@@ -1,7 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
-import Modal from 'react-native-modal';
-import MyText from 'components/MyText';
+import {StyleSheet, View} from 'react-native';
 import mainStyles from 'config/sharedStyles/mainStyles';
 import Close from 'assets/images/UI/close.svg';
 import MyButton from 'components/MyButton';
@@ -9,12 +7,23 @@ import MyBottomModal from 'components/MyBottomModal';
 import SwitchButtons from 'components/SwitchButtons';
 import GB from 'assets/images/UI/gb.svg';
 import FR from 'assets/images/UI/fr.svg';
+import {useTranslation} from 'react-i18next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface SettingsModalProps {
   isVisible: boolean;
   onClose: () => void;
 }
 const SettingsModal: React.FC<SettingsModalProps> = ({isVisible, onClose}) => {
+  const {t, i18n} = useTranslation('home', {keyPrefix: 'settings'});
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+
+    const jsonValue = JSON.stringify(lng);
+    AsyncStorage.setItem('LOCALE', jsonValue);
+  };
+
   return (
     <MyBottomModal isVisible={isVisible} onClose={onClose}>
       <View style={styles.container}>
@@ -26,13 +35,17 @@ const SettingsModal: React.FC<SettingsModalProps> = ({isVisible, onClose}) => {
           }
         />
         <SwitchButtons
-          onPressLeft={() => {}}
-          onPressRight={() => {}}
+          onPressLeft={() => {
+            changeLanguage('en');
+          }}
+          onPressRight={() => {
+            changeLanguage('fr');
+          }}
           svgLeft={<GB width="25" />}
           svgRight={<FR width="25" />}
-          txtLeft={'English'}
-          txtRight={'French'}
-          isRightSelected={true}
+          txtLeft={t('english')}
+          txtRight={t('french')}
+          isRightSelected={i18n.language === 'fr'}
         />
       </View>
     </MyBottomModal>

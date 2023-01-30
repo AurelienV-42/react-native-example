@@ -10,10 +10,12 @@ import createOnboardingStyles, {
 } from 'src/screens/Onboarding/onboardingStyles';
 import images from 'assets/index';
 import GestureRecognizer from 'react-native-swipe-gestures';
+import {useTranslation} from 'react-i18next';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
 const FirstScreen: React.FC<navigationProps> = ({navigation}) => {
+  const {t} = useTranslation('onboarding', {keyPrefix: 'first'});
   const styles = createOnboardingStyles(
     onboardingColor.firstMain,
     onboardingColor.firstSecond,
@@ -24,13 +26,13 @@ const FirstScreen: React.FC<navigationProps> = ({navigation}) => {
       onSwipeLeft={() => navigation.push('SecondOnboarding')}
       style={styles.container}>
       <View style={styles.marginBottom}>
-        <MyText style={styles.defaultTxt} txt={'I can be '} />
+        <MyText style={styles.defaultTxt} txt={t('first')} />
         <MainTxtWithPoint
           mainColor={onboardingColor.firstMain}
           style={styles.marginBottom}
-          txt={'the man you need'}
+          txt={t('second')}
         />
-        <MyText style={styles.defaultTxt} txt={"Let's see this!"} />
+        <MyText style={styles.defaultTxt} txt={t('third')} />
       </View>
       <MyPageIndicator step={0} />
       <Next

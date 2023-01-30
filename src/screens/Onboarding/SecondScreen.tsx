@@ -12,9 +12,11 @@ import ButtonContact from 'src/screens/Onboarding/components/ButtonContact';
 import mainStyles from 'config/sharedStyles/mainStyles';
 import Malt from 'assets/images/logo/malt_icon.svg';
 import GestureRecognizer from 'react-native-swipe-gestures';
+import {useTranslation} from 'react-i18next';
 
 type navigationProps = NativeStackScreenProps<{}>;
 const SecondScreen: React.FC<navigationProps> = ({navigation}) => {
+  const {t} = useTranslation('onboarding', {keyPrefix: 'second'});
   const styles = createOnboardingStyles(
     onboardingColor.secondMain,
     onboardingColor.secondSecond,
@@ -26,19 +28,19 @@ const SecondScreen: React.FC<navigationProps> = ({navigation}) => {
       onSwipeRight={navigation.goBack}
       style={[styles.container, stylesSecond.container]}>
       <View style={styles.marginBottom}>
-        <MyText style={styles.defaultTxt} txt={'Freelance'} />
+        <MyText style={styles.defaultTxt} txt={t('first')} />
         <MainTxtWithPoint
           mainColor={onboardingColor.secondMain}
           style={styles.marginBottom}
-          txt={'developer'}
+          txt={t('second')}
         />
-        <MyText style={styles.defaultTxt} txt={'But also'} />
+        <MyText style={styles.defaultTxt} txt={t('third')} />
         <MainTxtWithPoint
           mainColor={onboardingColor.secondMain}
           style={styles.marginBottom}
-          txt={'designer'}
+          txt={t('fourth')}
         />
-        <MyText style={styles.defaultTxt} txt={'Everything for your app!'} />
+        <MyText style={styles.defaultTxt} txt={t('fifth')} />
       </View>
       <MyPageIndicator step={1} />
       <Next
@@ -50,7 +52,7 @@ const SecondScreen: React.FC<navigationProps> = ({navigation}) => {
         url={'https://www.malt.fr/profile/aurelienvandaele'}
         svg={<Malt style={{color: mainStyles.red}} width={50} height={50} />}
         backgroundColor={mainStyles.lightRed}
-        txt={'Check my profile'}
+        txt={t('ctaProfile')}
       />
     </GestureRecognizer>
   );

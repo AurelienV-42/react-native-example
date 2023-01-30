@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import mainStyles from 'config/sharedStyles/mainStyles';
+import {DefaultTFuncReturn} from 'i18next';
 
 interface PropsType {
   style?: {};
-  txt?: string;
+  txt?: string | DefaultTFuncReturn;
 }
 
 const MyText: React.FC<PropsType> = ({style, txt}) => {

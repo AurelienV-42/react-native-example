@@ -11,7 +11,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 type navigationProps = NativeStackScreenProps<{}>;
 
 const LoadingScreen: React.FC<navigationProps> = ({navigation}) => {
-  const forceGoToOnboarding = true;
+  let forceGoToOnboarding = false;
+  if (__DEV__) {
+    forceGoToOnboarding = true;
+  }
   const resetTo = (nameRoute: string) => {
     navigation.dispatch(
       CommonActions.reset({

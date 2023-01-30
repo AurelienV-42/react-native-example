@@ -14,10 +14,12 @@ import ButtonContact from 'src/screens/Onboarding/components/ButtonContact';
 import Github from 'assets/images/logo/github_icon.svg';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useTranslation} from 'react-i18next';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
 const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
+  const {t} = useTranslation('onboarding', {keyPrefix: 'third'});
   const styles = createOnboardingStyles(
     onboardingColor.thirdMain,
     onboardingColor.thirdSecond,
@@ -46,13 +48,13 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
       onSwipeRight={navigation.goBack}
       style={[styles.container, stylesThird.container]}>
       <View style={styles.marginBottom}>
-        <MyText style={styles.defaultTxt} txt={'This app show'} />
+        <MyText style={styles.defaultTxt} txt={t('first')} />
         <MainTxtWithPoint
           mainColor={onboardingColor.thirdMain}
           style={styles.marginBottom}
-          txt={'what I can do'}
+          txt={t('second')}
         />
-        <MyText style={styles.defaultTxt} txt={'All the code is available!'} />
+        <MyText style={styles.defaultTxt} txt={t('third')} />
       </View>
       <MyPageIndicator step={2} />
       <Next
@@ -67,13 +69,13 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
           <Github style={{color: mainStyles.gray1}} width={50} height={50} />
         }
         backgroundColor={mainStyles.blue}
-        txt={'Check my profile'}
+        txt={t('ctaProfile')}
       />
     </GestureRecognizer>
   );
 };
 
 const stylesThird = StyleSheet.create({
-  container: {paddingRight: 120},
+  container: {paddingRight: 114},
 });
 export default ThirdScreen;

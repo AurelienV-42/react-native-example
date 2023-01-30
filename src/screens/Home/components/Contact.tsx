@@ -7,12 +7,15 @@ import MyButton from 'components/MyButton';
 import MyBottomModal from 'components/MyBottomModal';
 import Malt from 'assets/images/logo/malt_logo.svg';
 import Fiverr from 'assets/images/logo/fiverr_logo.svg';
+import {useTranslation} from 'react-i18next';
 
 interface ContactModalProps {
   isVisible: boolean;
   onClose: () => void;
 }
 const ContactModal: React.FC<ContactModalProps> = ({isVisible, onClose}) => {
+  const {t} = useTranslation('home', {keyPrefix: 'contact'});
+
   return (
     <MyBottomModal isVisible={isVisible} onClose={onClose}>
       <View style={styles.container}>
@@ -23,7 +26,7 @@ const ContactModal: React.FC<ContactModalProps> = ({isVisible, onClose}) => {
             <Close style={{color: mainStyles.gray1}} height={14} width={14} />
           }
         />
-        <MyText style={styles.title} txt={'Interested? Contact Me!'} />
+        <MyText style={styles.title} txt={t('title')} />
         <View style={styles.containerLogos}>
           <MyButton
             onPress={() =>

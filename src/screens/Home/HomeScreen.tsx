@@ -10,6 +10,7 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import SettingsModal from 'src/screens/Home/components/Settings';
 import ContactModal from 'src/screens/Home/components/Contact';
 import images from 'assets/index';
+import Settings from 'assets/images/UI/settings.svg';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
@@ -25,7 +26,6 @@ const HomeScreen: React.FC<navigationProps> = ({route, navigation}) => {
       <View style={styles.containerWithPadding}>
         <View style={styles.containerHeader}>
           <MyText style={styles.logoText} txt={'Aurél.'} />
-          {/* No i18n now
           <MyButton
             onPress={() => setSettingsModalVisible(true)}
             style={styles.containerBtn}
@@ -36,7 +36,7 @@ const HomeScreen: React.FC<navigationProps> = ({route, navigation}) => {
                 width={20}
               />
             }
-          />*/}
+          />
         </View>
 
         <View style={styles.containerContent}>
