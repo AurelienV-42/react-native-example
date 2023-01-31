@@ -1,7 +1,5 @@
 import mainStyles from 'config/sharedStyles/mainStyles';
 import {StyleSheet, View} from 'react-native';
-import GB from 'assets/images/UI/gb.svg';
-import FR from 'assets/images/UI/fr.svg';
 import MyButton from 'components/MyButton';
 import React, {useState} from 'react';
 

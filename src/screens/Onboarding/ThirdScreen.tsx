@@ -13,8 +13,8 @@ import mainStyles from 'config/sharedStyles/mainStyles';
 import ButtonContact from 'src/screens/Onboarding/components/ButtonContact';
 import Github from 'assets/images/logo/github_icon.svg';
 import GestureRecognizer from 'react-native-swipe-gestures';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useTranslation} from 'react-i18next';
+import {storeAsyncData} from 'src/utils/asyncData';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
@@ -26,14 +26,7 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
   );
 
   const goToHome = async () => {
-    try {
-      const jsonValue = JSON.stringify(true);
-      await AsyncStorage.setItem('onboardingDone', jsonValue);
-    } catch (e) {
-      console.warn(
-        'There was an error trying to set AsyncStorage value: onboardingDone to true',
-      );
-    }
+    storeAsyncData('ONBOARDING_DONE', true);
     navigation.dispatch(
       CommonActions.reset({
         index: 1,
@@ -76,6 +69,6 @@ const ThirdScreen: React.FC<navigationProps> = ({navigation}) => {
 };
 
 const stylesThird = StyleSheet.create({
-  container: {paddingRight: 114},
+  container: {paddingRight: '28%'},
 });
 export default ThirdScreen;

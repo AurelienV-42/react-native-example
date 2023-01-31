@@ -7,6 +7,7 @@ interface MyBottomModalProps {
   onClose: () => void;
   children: React.ReactNode;
 }
+
 const MyBottomModal: React.FC<MyBottomModalProps> = ({
   isVisible,
   onClose,

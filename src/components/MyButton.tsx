@@ -32,6 +32,7 @@ const MyButton: React.FC<PropsType> = ({
 
   return (
     <Pressable
+      hitSlop={10}
       style={[styles.button, style]}
       onPress={onPress}
       onPressIn={() => setPressed(true)}

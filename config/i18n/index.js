@@ -3,17 +3,7 @@ import {initReactI18next} from 'react-i18next';
 import en from './locales/en';
 import fr from './locales/fr';
 import {NativeModules, Platform} from 'react-native';
-
-// iOS:
-const getLocale = () => {
-  if (Platform.OS === 'ios') {
-    return (
-      NativeModules.SettingsManager.settings.AppleLocale ||
-      NativeModules.SettingsManager.settings.AppleLanguages[0]
-    );
-  }
-  return NativeModules.I18nManager.localeIdentifier;
-};
+import {getAsyncData} from 'src/utils/asyncData';
 
 const resources = {
   en: {
@@ -24,17 +14,52 @@ const resources = {
   },
 };
 
-const defaultLocale = getLocale().toString().includes('fr') ? 'fr' : 'en';
+const defaultLocale = 'en';
+const supportedLanguages = ['en', 'fr'];
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: defaultLocale,
-  fallbackLng: defaultLocale,
-  compatibilityJSON: 'v3',
-  react: {
-    useSuspense: false,
+const LanguageDetector = {
+  type: 'languageDetector',
+  async: true,
+  detect: async () => {
+    // Get the stored locale
+    const storedLocale = await getAsyncData('LOCALE');
+    if (supportedLanguages.includes(storedLocale)) {
+      return storedLocale;
+    }
+
+    // Get the device locale
+    const locale =
+      Platform.OS === 'ios'
+        ? NativeModules.SettingsManager?.settings?.AppleLocale ||
+          NativeModules.SettingsManager?.settings?.AppleLanguages[0] ||
+          ''
+        : NativeModules.I18nManager?.localeIdentifier || '';
+
+    const [lowerCaseLocale] = locale.split('_');
+
+    if (supportedLanguages.includes(lowerCaseLocale)) {
+      return lowerCaseLocale;
+    }
+    console.warn(
+      `locale ${lowerCaseLocale} from ${locale} is not supported, defaulting to ${defaultLocale}`,
+    );
+    return defaultLocale;
   },
-  interpolation: {
-    escapeValue: false,
-  },
-});
+  init: () => {},
+  cacheUserLanguage: () => {},
+};
+
+i18n
+  .use(initReactI18next)
+  .use(LanguageDetector)
+  .init({
+    resources,
+    fallbackLng: defaultLocale,
+    compatibilityJSON: 'v3',
+    react: {
+      useSuspense: false,
+    },
+    interpolation: {
+      escapeValue: false,
+    },
+  });

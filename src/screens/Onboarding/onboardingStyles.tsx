@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 import textStyle from 'config/sharedStyles/textStyle';
 import mainStyles from 'config/sharedStyles/mainStyles';
+import {
+  responsiveFontSize,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
 
 const createOnboardingStyles = (mainColor: string, secondColor: string) =>
   StyleSheet.create({
@@ -32,7 +36,11 @@ const createOnboardingStyles = (mainColor: string, secondColor: string) =>
     },
     containerContent: {justifyContent: 'center', flex: 0.9},
     lightTxt: {color: mainColor},
-    defaultTxt: {...mainStyles.s20BlackBold, fontSize: 50, lineHeight: 50},
+    defaultTxt: {
+      ...mainStyles.s20BlackBold,
+      fontSize: responsiveFontSize(6.5),
+      lineHeight: responsiveFontSize(6.5),
+    },
     marginBottom: {marginBottom: 20},
     containerAbsolute: {
       position: 'absolute',
@@ -44,15 +52,15 @@ const createOnboardingStyles = (mainColor: string, secondColor: string) =>
     },
     paddingBgProfilePicture: {
       backgroundColor: mainColor,
-      width: 300,
-      height: 300,
+      width: responsiveWidth(60),
+      height: responsiveWidth(60),
       borderRadius: 200,
       alignItems: 'center',
       justifyContent: 'center',
     },
     profilePicture: {
-      width: 270,
-      height: 270,
+      width: '90%',
+      height: '90%',
       borderRadius: 200,
     },
   });

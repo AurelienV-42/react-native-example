@@ -17,7 +17,6 @@ const ReadingScreen: React.FC<navigationProps> = ({route, navigation}) => {
   const styles = createStyles(item.mainColor, item.secondColor);
   // @ts-ignore
   let wording = i18n.store.data[i18n.language].blog[item.id].content;
-  console.log(wording);
   let svg;
 
   if (item.svg) {
@@ -76,7 +75,7 @@ const createStyles = (mainColor?: string, secondColor?: string) =>
       backgroundColor: secondColor,
     },
     headerContainer: {
-      paddingTop: 40,
+      paddingTop: 20,
       paddingLeft: 24,
       flexDirection: 'row',
       alignItems: 'flex-end',

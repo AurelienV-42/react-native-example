@@ -13,6 +13,7 @@ interface ContactModalProps {
   isVisible: boolean;
   onClose: () => void;
 }
+
 const ContactModal: React.FC<ContactModalProps> = ({isVisible, onClose}) => {
   const {t} = useTranslation('home', {keyPrefix: 'contact'});
 

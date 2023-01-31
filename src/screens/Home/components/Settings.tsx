@@ -8,20 +8,19 @@ import SwitchButtons from 'components/SwitchButtons';
 import GB from 'assets/images/UI/gb.svg';
 import FR from 'assets/images/UI/fr.svg';
 import {useTranslation} from 'react-i18next';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {storeAsyncData} from 'src/utils/asyncData';
 
 interface SettingsModalProps {
   isVisible: boolean;
   onClose: () => void;
 }
+
 const SettingsModal: React.FC<SettingsModalProps> = ({isVisible, onClose}) => {
   const {t, i18n} = useTranslation('home', {keyPrefix: 'settings'});
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-
-    const jsonValue = JSON.stringify(lng);
-    AsyncStorage.setItem('LOCALE', jsonValue);
+    storeAsyncData('LOCALE', lng);
   };
 
   return (

@@ -6,7 +6,7 @@ import colors from 'config/sharedStyles/colors';
 import textStyle from 'config/sharedStyles/textStyle';
 import {responsiveFontSize} from 'react-native-responsive-dimensions';
 import {CommonActions} from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {getAsyncData} from 'src/utils/asyncData';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
@@ -29,17 +29,11 @@ const LoadingScreen: React.FC<navigationProps> = ({navigation}) => {
       resetTo('FirstOnboarding');
       return;
     }
-    try {
-      const value = await AsyncStorage.getItem('onboardingDone');
-      if (value !== null) {
-        resetTo('Home');
-      } else {
-        resetTo('FirstOnboarding');
-      }
-    } catch (e) {
-      console.warn(
-        'There was an error trying to get AsyncStorage value: onboardingDone',
-      );
+    const value = await getAsyncData('ONBOARDING_DONE');
+    if (value !== null) {
+      resetTo('Home');
+    } else {
+      resetTo('FirstOnboarding');
     }
   };
 

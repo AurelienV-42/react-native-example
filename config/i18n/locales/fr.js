@@ -34,18 +34,18 @@ export default {
     experiences: {
       title: 'Expériences',
       description:
-        "Qu'ai je fais avec les + de 15 entreprises pour lesquelles j'ai travaillé ?",
+        "Qu'ai je fait avec les + de 15 entreprises pour lesquelles j'ai travaillé ?",
       content: [
         {h1: 'Circular - Dev/CTO'},
         {
           p:
-            'Circular est une start-up qui réalise des bagues connectées dotée de biocapteurs et connectée à une application qui analyse les signaux du corps, permettant d’améliorer le sommeil, les activités physiques et la santé.\n\n' +
+            'Circular est une start-up qui réalise des bagues connectées dotées de biocapteurs et connectées à une application qui analyse les signaux du corps, permettant d’améliorer le sommeil, les activités physiques et la santé.\n\n' +
             "Sur cette mission j'ai continué le développement de leur application en React Native. J'ai eu la possibilité d'aider Circular à mettre en production leur produit sur l'App Store.",
         },
         {h1: 'Efficience Digitale - Dev/CTO'},
         {
           p:
-            'Efficience Digitale est une agence qui innove avec une équipe technique en React Native.' +
+            'Efficience Digitale est une agence qui innove avec une équipe technique en React Native.\n' +
             "Lors de cette mission j'ai fait un audit de code afin de trouver la dette technique potentielle sur ce projet. J'ai également eu l'occasion de faire de la gestion de projet sur 4 projets différents afin d'apporter mon expertise sur ces différents sujets.\n" +
             "J'ai eu l'occasion de travailler sur :\n\n" +
             '👉 Re-design UX/UI\n' +
@@ -57,7 +57,7 @@ export default {
         {h1: 'mindDay - Dev'},
         {
           p:
-            "mindDay permet d'apporter du bien-être mental dans vos équipes." +
+            "mindDay permet d'apporter du bien-être mental dans vos équipes.\n" +
             "Cette expérience m'a permis d'aider le développement front de l'application web de mindDay. Elle m'a permis de découvrir ou d'approfondir mes compétences sur :\n\n" +
             '👉 Storybook\n' +
             '👉 TypeScript\n' +
@@ -74,11 +74,11 @@ export default {
             'FunBIM aide ses clients à regrouper les plans de construction et les différentes tâches liées à ces derniers.\n\n' +
             'Durant cette mission j’ai réalisé une refonte « from scratch » de l’application mobile. Cela m’a permis une fois de plus de me remettre en question techniquement (sur l’architecture, les modules utilisés…)',
         },
-        {h1: 'BetM - Développeur FullStack'},
+        {h1: 'betM - Développeur FullStack'},
         {
           p:
             'betM permet de gérer et analyser les paris sportifs simplement.\n\n' +
-            "Cette expérience au sein d'une start-up m'a permis de gérer seul une partie importante d'un projet." +
+            "Cette expérience au sein d'une start-up m'a permis de gérer seul une partie importante d'un projet.\n" +
             "Au cours de cette expérience, j'ai eu l'occasion de :\n\n" +
             '👉 Conceptualiser\n' +
             '👉 Designer (Figma)\n' +
@@ -140,7 +140,7 @@ export default {
         {
           p:
             '⭐️⭐️⭐️⭐️⭐️\tJavaScript\n' +
-            '⭐️⭐️⭐️⭐️⭐️\ti18n (translation)\n' +
+            '⭐️⭐️⭐️⭐️⭐️\ti18n (traduction)\n' +
             '⭐️⭐️⭐️⭐️\t\tTypeScript\n' +
             '⭐️⭐️⭐️⭐️\t\tTailwind\n' +
             '⭐️⭐️⭐️⭐️\t\tRedux',
@@ -186,7 +186,7 @@ export default {
         },
         {h1: '🏖️ Voyages'},
         {
-          p: "A la fin de mes études, je suis partie en solo de Lille à Helsinki à pied et en auto-stop ! Un voyage merveilleux qui m'a appris beaucoup de choses sur moi-même. Je suis passé dans plusieurs grandes villes comme Anvers, Berlin, Copenhague et Stockholm... Et j'ai terminé mon voyage à Saariselkä, une ville très au nord en Laponie !",
+          p: "À la fin de mes études, je suis parti en solo de Lille à Helsinki à pied et en auto-stop ! Un voyage merveilleux qui m'a appris beaucoup de choses sur moi-même. Je suis passé dans plusieurs grandes villes comme Anvers, Berlin, Copenhague et Stockholm... Et j'ai terminé mon voyage à Saariselkä, une ville très au nord en Laponie !",
         },
       ],
     },
@@ -196,7 +196,7 @@ export default {
       content: [
         {h1: 'En cours'},
         {
-          p: "Oui, j'ai fait cette petite appli tout seul, tout ne peut pas être parfait au départ vous ne trouvez pas ? 😉 Mais il paraît que je serais allée de Lille (France) à Helsinki (Finlande) à pied et en auto-stop 🫣.",
+          p: "Oui, j'ai fait cette petite appli tout seul, tout ne peut pas être parfait au départ vous ne trouvez pas ? 😉 Mais il paraît que je serais allé de Lille (France) à Helsinki (Finlande) à pied et en auto-stop 🫣.",
         },
       ],
     },
