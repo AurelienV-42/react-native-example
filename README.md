@@ -21,3 +21,12 @@ Goal: Display blog post about me.
 - Reading Screens
 - Settings with translation switch
 - CTA to contact me
+
+# Contact
+
+You can contact me at :
+
+- <aurelienvpro@gmail.com>
+- [Malt](https://www.malt.fr/profile/aurelienvandaele)
+- [Fiverr](https://fr.fiverr.com/aurelienvan)
+- [LinkedIn](https://www.linkedin.com/in/aurelien-vandaele/)
