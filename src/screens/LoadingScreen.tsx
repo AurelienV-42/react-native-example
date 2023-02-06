@@ -7,6 +7,8 @@ import textStyle from 'config/sharedStyles/textStyle';
 import {responsiveFontSize} from 'react-native-responsive-dimensions';
 import {CommonActions} from '@react-navigation/native';
 import {getAsyncData} from 'src/utils/asyncData';
+import {getNotionDatabase} from 'src/utils/notionAPI';
+import i18next from 'i18next';
 
 type navigationProps = NativeStackScreenProps<{}>;
 
@@ -24,7 +26,17 @@ const LoadingScreen: React.FC<navigationProps> = ({navigation}) => {
     );
   };
 
+  const setTextFromNotion = async () => {
+    const notionData = await getNotionDatabase();
+    if (notionData) {
+      for (const key in notionData) {
+        i18next.addResourceBundle(key, 'blog', notionData[key]?.blog);
+      }
+    }
+  };
+
   const goToOnboardingOrHome = async () => {
+    await setTextFromNotion();
     if (forceGoToOnboarding) {
       resetTo('FirstOnboarding');
       return;

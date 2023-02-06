@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 
 import HomeScreen from 'src/screens/Home/HomeScreen';
 import colors from 'config/sharedStyles/colors';
