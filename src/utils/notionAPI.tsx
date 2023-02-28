@@ -3,11 +3,16 @@ import {NOTION_KEY, NOTION_DATABASE_ID} from '@env';
 
 import {Client} from '@notionhq/client';
 
+if (!NOTION_KEY) {
+  console.warn("There's no NOTION_KEY, have you got a .env?");
+}
+if (!NOTION_DATABASE_ID) {
+  console.warn("There's no NOTION_DATABASE_ID, have you got a .env?");
+}
+
 const notion = new Client({auth: NOTION_KEY});
 
 const databaseId = NOTION_DATABASE_ID;
-
-type TextType = 'h1' | 'h2' | 'p';
 
 const whatKindOfText = (annotations: any) => {
   if (annotations.bold) {

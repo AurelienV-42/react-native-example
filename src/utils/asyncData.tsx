@@ -5,7 +5,8 @@ export const storeAsyncData = async (storageKey: string, value: any) => {
     const jsonValue = JSON.stringify(value);
     await AsyncStorage.setItem(storageKey, jsonValue);
   } catch (e) {
-    console.warn('ERROR: AsyncStorage STORE: onboardingDone');
+    console.warn(`ERROR: AsyncStorage STORE ${storageKey} : ${e}`);
+    throw e;
   }
 };
 
@@ -14,6 +15,7 @@ export const getAsyncData = async (storageKey: string) => {
     const jsonValue = await AsyncStorage.getItem(storageKey);
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (e) {
-    console.warn('ERROR: AsyncStorage GET: onboardingDone');
+    console.warn(`ERROR: AsyncStorage GET ${storageKey} : ${e}`);
+    throw e;
   }
 };
