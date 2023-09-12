@@ -9,7 +9,8 @@
     "android:prod": "cd android ./gradlew clean && ./gradlew assembleRelease",
     "androidbundle:prod": "cd android ./gradlew clean && ./gradlew bundleRelease",
     "images": "node ../react-native-example/assets/image.js",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@notionhq/client": "^1.0.1",
@@ -17,6 +18,7 @@
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
     "i18next": "^22.4.9",
+    "patch-package": "^8.0.0",
     "react": "18.1.0",
     "react-i18next": "^12.1.4",
     "react-native": "0.70.6",
